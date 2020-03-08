@@ -1,6 +1,6 @@
 fswatcher
 ===
-fawatcher is a useful cross-platform command tool which will trigger the user's specified  command when the watched files and path change. Thanks for the awesome library written in Go([fsnotify]https://github.com/fsnotify/fsnotify).
+fawatcher is a useful cross-platform command tool which will trigger the user's specified  command when the watched files and path change. Thanks for the awesome library written in Go [fsnotify](https://github.com/fsnotify/fsnotify).
 
 
 ### Usage:
