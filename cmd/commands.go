@@ -32,8 +32,8 @@ var (
 func New() (*cobra.Command, error) {
 	rootCmd := cobra.Command{
 		Use:     "fswatcher",
-		Short:   "fswatcher watches the specified files or directories, and a changing event will trigger the user's command",
-		Long:    "fswatcher watches the specified files or directories, and a changing event will trigger the user's command",
+		Short:   "fswatcher watches the specified files or directories, and any changing event will trigger the user's command",
+		Long:    "fswatcher watches the specified files or directories, and any changing event will trigger the user's command",
 		Example: "fswatcher --cmd 'echo ***' /tmp/foo",
 		Version: "0.0.1",
 		Run:     run,
