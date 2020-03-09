@@ -31,16 +31,17 @@ var (
 
 func New() (*cobra.Command, error) {
 	rootCmd := cobra.Command{
-		Use:     "fswatcher",
+		Use:     "fswatcher -c [-i] [-r] [-n] [-v] args",
 		Short:   "fswatcher watches the specified files or directories, and any changing event will trigger the user's command",
 		Long:    "fswatcher watches the specified files or directories, and any changing event will trigger the user's command",
-		Example: "fswatcher --cmd 'echo ***' /tmp/foo",
+		Example: "fswatcher -c 'echo ***' /tmp/foo",
 		Version: "0.0.1",
 		Run:     run,
 		Args:    cobra.ExactArgs(1),
 	}
 
 	rootCmd.Flags().StringVarP(&command, "command", "c", "", "the command to execute when change event notified")
+	rootCmd.MarkFlagRequired("command")
 	rootCmd.Flags().StringSliceVarP(&ignores, "ignore", "i", nil, "comma separated list of files and paths to ignore")
 	rootCmd.Flags().BoolVarP(&recursive, "recursive", "r", true, "watch folders recursively")
 	rootCmd.Flags().BoolVarP(&notify, "notify", "n", false, "enable system notify while event triggered")
