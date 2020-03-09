@@ -37,8 +37,8 @@ func New() (*cobra.Command, error) {
 		Example: "fswatcher --cmd 'echo ***' /tmp/foo",
 		Version: "0.0.1",
 		Run:     run,
+		Args:    cobra.ExactArgs(1),
 	}
-	cobra.MinimumNArgs(1)
 
 	rootCmd.Flags().StringVarP(&command, "command", "c", "", "the command to execute when change event notified")
 	rootCmd.Flags().StringSliceVarP(&ignores, "ignore", "i", nil, "comma separated list of files and paths to ignore")
