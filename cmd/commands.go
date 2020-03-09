@@ -31,7 +31,7 @@ var (
 
 func New() (*cobra.Command, error) {
 	rootCmd := cobra.Command{
-		Use:     "fswatcher -c [-i] [-r] [-n] [-v] args",
+		Use:     "fswatcher filepath",
 		Short:   "fswatcher watches the specified files or directories, and any changing event will trigger the user's command",
 		Long:    "fswatcher watches the specified files or directories, and any changing event will trigger the user's command",
 		Example: "fswatcher -c 'echo ***' /tmp/foo",
@@ -46,7 +46,7 @@ func New() (*cobra.Command, error) {
 	rootCmd.Flags().BoolVarP(&recursive, "recursive", "r", true, "watch folders recursively")
 	rootCmd.Flags().BoolVarP(&notify, "notify", "n", false, "enable system notify while event triggered")
 	rootCmd.Flags().StringVarP(&interval, "interval", "v", "", "the user command only executes once during an interval, "+
-		"0 represents every event will trigger the execution of user's command")
+		"every event will trigger the execution of user's command at default")
 
 	return &rootCmd, nil
 }
