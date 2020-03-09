@@ -166,8 +166,6 @@ func run(cmd *cobra.Command, args []string) {
 
 						atomic.StoreInt32(&changed, 0)
 					}
-				default:
-
 				}
 			}
 		}
