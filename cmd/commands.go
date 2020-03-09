@@ -202,10 +202,7 @@ func watchRecursively(watcher *fsnotify.Watcher, absPath string, ignoresMapping 
 
 	for _, fileInfo := range fileInfos {
 		if fileInfo.IsDir() {
-			absFilePath, err := filepath.Abs(fileInfo.Name())
-			if err != nil {
-				return errors.New("get subdirectory absolute path error : " + err.Error())
-			}
+			absFilePath := filepath.Join(absPath, fileInfo.Name())
 
 			if _, ok := ignoresMapping.Load(absFilePath); !ok {
 				err = watcher.Add(absFilePath)
