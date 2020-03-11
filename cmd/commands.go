@@ -229,7 +229,7 @@ func execCmd(cmd string) error {
 
 	log.Println("======== execute user command, output begin: ========")
 	fmt.Printf(tcolor.WithColor(tcolor.Green, stdout.String()))
-	fmt.Printf(tcolor.WithColor(tcolor.Green, stderr.String()))
+	fmt.Printf(tcolor.WithColor(tcolor.Red, stderr.String()))
 	log.Println("======== execute user command, output end:   ========")
 
 	return nil
